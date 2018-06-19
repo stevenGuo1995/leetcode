@@ -14,3 +14,13 @@ class Solution:
         :type b: str
         :rtype: str
         """
+        ab = '0b'+a
+        bb = '0b'+b
+        c = int(ab,2)+int(bb,2)
+        return '{:b}'.format(c)
+
+
+if __name__ == "__main__":
+    s = Solution()
+    c = s.addBinary('11','1')
+    print(c)
