@@ -1,9 +1,16 @@
 class Solution(object):
     def countStr(self, s):
-        count = 0
-        ans = ''
-        temp = s[0]
-
+        count = 0;
+        ans = "";
+        tmp = s[0]
+        for i in range(len(s)):
+            if s[i] == tmp:
+                count += 1
+            else:
+                ans += str(count) + tmp
+                tmp = s[i];
+                count = 1
+        ans += str(count) + tmp
         return ans
 
     def countAndSay(self, n):
@@ -11,7 +18,14 @@ class Solution(object):
         :type n: int
         :rtype: str
         """
+        ans = '1'
         while n > 1:
             ans = self.countStr(ans)
             n -= 1
-            
+        return ans
+
+
+if __name__ == '__main__':
+    s = Solution()
+    c = s.countAndSay(6)
+    print(c)
